@@ -1,10 +1,16 @@
 using MySql.Data.MySqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace SummaryAgent.Services;
 
 public class SummaryDbService
 {
-    private readonly string _connStr = "server=localhost;user=root;password=pass;database=chatdb;";
+    private readonly string _connStr;
+
+    public SummaryDbService(IConfiguration config)
+    {
+        _connStr = config.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string not found.");
+    }
 
     public async Task SaveSummaryAsync(string user, string summary)
     {

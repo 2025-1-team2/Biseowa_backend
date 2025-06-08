@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/jihyeon/OllamaAgent/SummaryAgent/SummaryAgent.csproj": {}
+    "/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/SummaryAgent.csproj": {}
   },
   "projects": {
-    "/home/jihyeon/OllamaAgent/SummaryAgent/SummaryAgent.csproj": {
+    "/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/SummaryAgent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/jihyeon/OllamaAgent/SummaryAgent/SummaryAgent.csproj",
+        "projectUniqueName": "/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/SummaryAgent.csproj",
         "projectName": "SummaryAgent",
-        "projectPath": "/home/jihyeon/OllamaAgent/SummaryAgent/SummaryAgent.csproj",
+        "projectPath": "/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/SummaryAgent.csproj",
         "packagesPath": "/home/jihyeon/.nuget/packages/",
-        "outputPath": "/home/jihyeon/OllamaAgent/SummaryAgent/obj/",
+        "outputPath": "/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/jihyeon/.nuget/NuGet/NuGet.Config"
@@ -43,6 +43,18 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.5, )"
+            },
             "Microsoft.SemanticKernel": {
               "target": "Package",
               "version": "[1.55.0, )"

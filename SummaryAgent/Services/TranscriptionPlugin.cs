@@ -1,56 +1,39 @@
 using Microsoft.SemanticKernel;
-using System.Net.Http;
-using System.Text.Json;
-using SummaryAgent.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace SummaryAgent.Services;
 
 public class TranscriptionPlugin
 {
     private readonly HttpClient _httpClient;
-    private readonly OllamaSummaryService _summaryService = new();
-    private readonly SummaryDbService _dbService = new();
+    private readonly OllamaSummaryService _summaryService;
+    private readonly SummaryDbService _dbService;
 
-    public TranscriptionPlugin(HttpClient httpClient)
+    public TranscriptionPlugin(HttpClient httpClient, IConfiguration config)
     {
-        _httpClient = httpClient;
+        _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+        _summaryService = new OllamaSummaryService();
+        _dbService = new SummaryDbService(config);
     }
 
-    [KernelFunction]
+    [KernelFunction("TranscribeStream")]
     public async IAsyncEnumerable<string> TranscribeStreamAsync()
     {
-        using var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:11434/api/transcriptionstream");
-        request.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("text/event-stream"));
+        await Task.Yield(); // 비동기 컨텍스트 진입
 
-        var response = await _httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead);
-        response.EnsureSuccessStatusCode();
+        // 테스트용 입력 문장
+        var user = "지현";
+        var inputText = "오늘 회의에서는 프로젝트 목표를 공유했어요.";
 
-        using var stream = await response.Content.ReadAsStreamAsync();
-        using var reader = new StreamReader(stream);
+        // ✅ Ollama 요약 요청
+        var summary = await _summaryService.SummarizeAsync(inputText);
+        Console.WriteLine($"[Ollama 요약 결과] {summary}");
 
-        while (!reader.EndOfStream)
-        {
-            var line = await reader.ReadLineAsync();
-            if (!string.IsNullOrWhiteSpace(line))
-            {
-                TranscriptionItem? item = null;
-                try
-                {
-                    item = JsonSerializer.Deserialize<TranscriptionItem>(line);
-                }
-                catch (JsonException ex)
-                {
-                    Console.WriteLine($"JSON parsing error: {ex.Message}");
-                }
+        // DB 저장
+        await _dbService.SaveSummaryAsync(user, summary);
+        Console.WriteLine("[DB 저장 완료]");
 
-                if (item != null)
-                {
-                    var summary = await _summaryService.SummarizeAsync(item.Text);
-                    await _dbService.SaveSummaryAsync(item.User, summary);
-                    yield return $"{item.User}: {summary}";
-                }
-
-            }
-        }
+        // 콘솔 및 Semantic Kernel 반환
+        yield return $"{user}: {summary}";
     }
 }
