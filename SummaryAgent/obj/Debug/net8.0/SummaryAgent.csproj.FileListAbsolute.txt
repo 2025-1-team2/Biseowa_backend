@@ -80,7 +80,6 @@
 /home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/bin/Debug/net8.0/Microsoft.Extensions.AI.dll
 /home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/bin/Debug/net8.0/Microsoft.Extensions.AI.Abstractions.dll
 /home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/bin/Debug/net8.0/Microsoft.Extensions.AI.OpenAI.dll
-/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/bin/Debug/net8.0/Microsoft.Extensions.Caching.Abstractions.dll
 /home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/bin/Debug/net8.0/Microsoft.Extensions.Configuration.dll
 /home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/bin/Debug/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll
 /home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/bin/Debug/net8.0/Microsoft.Extensions.Configuration.FileExtensions.dll
@@ -136,3 +135,12 @@
 /home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/obj/Debug/net8.0/SummaryAgent.pdb
 /home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/obj/Debug/net8.0/SummaryAgent.genruntimeconfig.cache
 /home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/obj/Debug/net8.0/ref/SummaryAgent.dll
+/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/obj/Debug/net8.0/SummaryAgent.MvcApplicationPartsAssemblyInfo.cache
+/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/obj/Debug/net8.0/staticwebassets.build.json
+/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/obj/Debug/net8.0/staticwebassets.development.json
+/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/obj/Debug/net8.0/staticwebassets/msbuild.SummaryAgent.Microsoft.AspNetCore.StaticWebAssets.props
+/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/obj/Debug/net8.0/staticwebassets/msbuild.build.SummaryAgent.props
+/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.SummaryAgent.props
+/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.SummaryAgent.props
+/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/obj/Debug/net8.0/staticwebassets.pack.json
+/home/jihyeon/OllamaAgent/Biseowa_backend/SummaryAgent/obj/Debug/net8.0/scopedcss/bundle/SummaryAgent.styles.css
